@@ -1,0 +1,48 @@
+<div class="">
+<div class="container mt-4" >
+    <div class="card">
+            <h1 class="text-dark text-center">Student Registation</h1>
+    
+    <form>
+       
+        <div class="form-group">
+          <label class="text-success">Student Name</label>
+          <input type="text" [(ngModel)]="stname" [ngModelOptions]="{standalone: true}" class="form-control" id="stname" placeholder="Enter Name">
+        </div>
+    
+        <div class="form-group">
+          <label>Course</label>
+          <input type="text" [(ngModel)]="course" [ngModelOptions]="{standalone: true}" class="form-control" id="course" placeholder="Enter Name">
+        </div>
+    
+        <button type="submit" class="btn btn-success mt-4" (click)="save()" >Save</button>
+       
+      </form>
+    </div>
+
+        <div class="container mt-4" >
+            <h1 class="text-center text-decoration-underline">Student Details</h1> 
+        <table class="table  m-auto p-3 table-striped" border="2">
+            <thead>
+             <h1 *ngIf="!isResultLoaded">Waition a Few Minit.................</h1>      
+            <tr class="bg-info">
+                <th scope="col">ID</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Course</th>  
+                <th class="text-center" scope="col">Action</th>  
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let StudentItem of StudentArray ">
+                    <td>{{StudentItem.id  }}</td>
+                <td>{{StudentItem.stname }}</td>
+                <td>{{StudentItem.course }}</td>
+                <td >
+                  <button type="button" class="btn btn-info mx-1" (click)="setUpdate(StudentItem)">Edit</button>
+                  <button type="button" class="btn btn-danger mx-1" (click)="setDelete(StudentItem)">Delete</button>            
+                </td>
+              </tr>          
+            </tbody>
+          </table>
+        </div>
+    </div>
