@@ -33,7 +33,7 @@ namespace Backend_File.Controllers
         }
 
         [HttpPatch]
-        [Route("UpdateStudent/{id}")]
+        [Route("UpdateStudent")]
         public async Task<Student> UpdateStudent(Student objStudent)
         {
             db.Entry(objStudent).State = EntityState.Modified;
